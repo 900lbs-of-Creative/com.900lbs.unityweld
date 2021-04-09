@@ -18,12 +18,6 @@ namespace UnityWeld.Examples.Templates
         {
             get
             {
-                // Lazy init
-                if (activeTab == null)
-                {
-                    activeTab = NameTab;
-                }
-
                 return activeTab;
             }
             set 

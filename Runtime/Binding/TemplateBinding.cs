@@ -86,9 +86,7 @@ namespace UnityWeld.Binding
             // Get value from view-model.
             var viewModelPropertyValue = viewModelProperty.GetValue(ViewModel, null);
             if (viewModelPropertyValue == null)
-            {
-                throw new PropertyNullException($"TemplateBinding cannot bind to null property in view: {ViewModelPropertyName}.");
-            }
+                return;
 
             InstantiateTemplate(viewModelPropertyValue);
         }
