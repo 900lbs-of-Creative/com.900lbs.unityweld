@@ -52,7 +52,13 @@ namespace UnityWeld.Binding
                 var providedViewModel = components
                     .Where(component => component != null)
                     .Where(component => component != this)
-                    .Where(component => component.GetType() != GetType())
+                    .Where(component =>
+                    {
+                        if (transform == trans && component.GetType() == GetType())
+                            return false;
+                        else
+                            return true;
+                    })
                     .Select(component => component.GetViewModelData())
                     .Where(viewModelData => viewModelData != null)
                     .FirstOrDefault(
